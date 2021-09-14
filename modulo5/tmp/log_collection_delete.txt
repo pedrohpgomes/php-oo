@@ -1,0 +1,1 @@
+2018-11-05 23:35:09 :DELETE FROM produto WHERE (descricao like '%WEBC%' or descricao like '%FILMAD%')

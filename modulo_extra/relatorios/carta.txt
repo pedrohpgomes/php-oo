@@ -1,0 +1,19 @@
+
+{local}, {data}
+
+Ao Sr(a) {nome}
+{endereco}
+{bairro}
+{municipio}-{uf}
+{cep}
+
+
+Sua matrícula está confirmada. Compareça ao evento com pelo menos 1 hora de antecedência para realizar o check-in e obter suas <b>credenciais</b>.
+
+Tendo em vista a grande movimentação de pessoas no dia, solicitamos observar as palestras selecionadas, bem como os horários e salas a seguir.
+
+Qualquer mudança de programação será informada para você com antecedência.
+
+
+Respeitosamente,
+<b><i>{empresa}</i></b>

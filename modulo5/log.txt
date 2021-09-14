@@ -1,0 +1,1 @@
+2018-10-27 17:58:50 :INSERT INTO produto (id, descricao, estoque, preco_custo,       preco_venda, codigo_barras, data_cadastro, origem) VALUES ('6', 'Chocolate branco', '70', '4', '7', '14123123', '2018-10-27', 'N')

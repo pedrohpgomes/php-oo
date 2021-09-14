@@ -1,0 +1,5 @@
+2018-11-05 23:31:42 :SELECT * FROM produto WHERE (preco_venda <= 35 and origem = 'N')<br>
+2018-11-05 23:31:42 :SELECT * FROM produto WHERE id=3<br>
+2018-11-05 23:31:42 :UPDATE produto SET descricao = 'SD CARD  512MB', estoque = '4.0', preco_custo = '20.0', preco_venda = 45.5, codigo_barras = '0000000003', data_cadastro = '2015-01-01', origem = 'N' WHERE id= 3<br>
+2018-11-05 23:31:42 :SELECT * FROM produto WHERE id=22<br>
+2018-11-05 23:31:42 :UPDATE produto SET descricao = 'MOUSE PS2 A7 AZUL/PLATA', estoque = '20.0', preco_custo = '5.0', preco_venda = 19.5, codigo_barras = '0000000022', data_cadastro = '2015-01-01', origem = 'N' WHERE id= 22<br>

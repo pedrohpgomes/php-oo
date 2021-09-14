@@ -1,0 +1,12 @@
+{
+  "repositories": [
+    { "type": "vcs", "url": "https://github.com/pablodalloglio/ole" },
+    { "type": "vcs", "url": "https://github.com/pablodalloglio/spreadsheet_excel_writer" }
+  ],
+    "require": {
+        "setasign/fpdf": "^1.8",
+        "phprtflite/phprtflite": "^1.3",
+        "pablodalloglio/ole": "dev-master",
+       "pablodalloglio/spreadsheet_excel_writer": "dev-master"
+    }
+}

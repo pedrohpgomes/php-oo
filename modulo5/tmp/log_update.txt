@@ -1,0 +1,1 @@
+2018-11-03 17:39:28 :SELECT * FROM produto WHERE id=72018-11-03 17:39:28 :SELECT * FROM produto WHERE id=72018-11-03 17:39:28 :UPDATE produto SET descricao = 'Cerveja artesanal IPA', estoque = 60, preco_custo = '8.0', preco_venda = '12.0', codigo_barras = '123123123', origem = 'N' WHERE id= 7

@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+ErrorDocument 404 /notfound
+
+RewriteRule ^c([0-9]+)$ index.php?action=show_category&category_id=$1
+RewriteRule ^([0-9]+)$          index.php?action=show_post&post_id=$1
+RewriteRule ^instalacao-php-windows$          12
+RewriteRule ^instalacao-php-macos$            13
+RewriteRule ^instalacao-php-linux$            14
+RewriteRule ^login-face$              crm/facebook.php
+RewriteRule ^login-google$            crm/google.php
+RewriteRule ^login-github$            crm/github.php
+RewriteRule ^list-(.+)$               index.php?action=list_subscribe&tag=$1&%{QUERY_STRING} [NC]
+RewriteRule ^download-email$          index.php?action=download_email&%{QUERY_STRING} [NC]
+RewriteRule ^download-center$         index.php?action=download_center&%{QUERY_STRING} [NC]
+RewriteRule ^confirm-download$        index.php?action=confirm_download&%{QUERY_STRING} [NC]
+RewriteRule ^confirm-subscription$    index.php?action=confirm_subscription&%{QUERY_STRING} [NC]
+RewriteRule ^confirm-download-email$  index.php?action=confirm_download_email&%{QUERY_STRING} [NC]
+RewriteRule ^get-download-email$      index.php?action=get_download_email&%{QUERY_STRING} [NC]
