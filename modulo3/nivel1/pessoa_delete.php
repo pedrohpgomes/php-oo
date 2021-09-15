@@ -3,12 +3,13 @@ $dados = $_GET;
 
 if ($dados['id'])
 {
-    $conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
-    
+    //$conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
+    $conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
+
     $id  = (int) $dados['id'];
     $sql = "DELETE FROM pessoa WHERE id='{$id}'";
     
-    $result = pg_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
     
     if ($result)
     {
@@ -16,7 +17,7 @@ if ($dados['id'])
     }
     else
     {
-        print pg_last_error($conn);
+        print mysqli_error($conn);
     }
-    pg_close($conn);
+    mysqli_close($conn);
 }

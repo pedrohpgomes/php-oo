@@ -48,27 +48,6 @@ CREATE TABLE IF NOT EXISTS produto (
 	FOREIGN KEY(id_tipo) REFERENCES tipo(id),
 	PRIMARY KEY(id)
 );
-CREATE TABLE IF NOT EXISTS venda (
-	id	integer NOT NULL,
-	id_cliente	integer,
-	data_venda	date,
-	desconto	float,
-	acrescimos	float,
-	valor_final	float,
-	obs	text,
-	FOREIGN KEY(id_cliente) REFERENCES pessoa(id),
-	PRIMARY KEY(id)
-);
-CREATE TABLE IF NOT EXISTS item_venda (
-	id	integer NOT NULL,
-	id_produto	integer,
-	id_venda	integer,
-	quantidade	float,
-	preco	float,
-	FOREIGN KEY(id_produto) REFERENCES produto(id),
-	FOREIGN KEY(id_venda) REFERENCES venda(id),
-	PRIMARY KEY(id)
-);
 
 CREATE TABLE IF NOT EXISTS conta (
 	id	integer NOT NULL,
@@ -101,6 +80,30 @@ CREATE TABLE IF NOT EXISTS pessoa (
 	FOREIGN KEY(id_cidade) REFERENCES cidade(id),
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE IF NOT EXISTS venda (
+	id	integer NOT NULL,
+	id_cliente	integer,
+	data_venda	date,
+	desconto	float,
+	acrescimos	float,
+	valor_final	float,
+	obs	text,
+	FOREIGN KEY(id_cliente) REFERENCES pessoa(id),
+	PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS item_venda (
+	id	integer NOT NULL,
+	id_produto	integer,
+	id_venda	integer,
+	quantidade	float,
+	preco	float,
+	FOREIGN KEY(id_produto) REFERENCES produto(id),
+	FOREIGN KEY(id_venda) REFERENCES venda(id),
+	PRIMARY KEY(id)
+);
+
 CREATE TABLE IF NOT EXISTS pessoa_grupo (
 	id	integer NOT NULL,
 	id_pessoa	integer,
