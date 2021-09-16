@@ -16,15 +16,16 @@
         
         if (!empty($_REQUEST['action']))
         {
-            $conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
-            
+            //$conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
+            $conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
+
             if ($_REQUEST['action'] == 'edit')
             {
                 if (!empty($_GET['id']))
                 {
                     $id = (int) $_GET['id'];
-                    $result = pg_query($conn, "SELECT * FROM pessoa WHERE id='{$id}'");
-                    $row = pg_fetch_assoc($result);
+                    $result = mysqli_query($conn, "SELECT * FROM pessoa WHERE id='{$id}'");
+                    $row = mysqli_fetch_assoc($result);
                     
                     $id         = $row['id'];
                     $nome       = $row['nome'];
@@ -47,15 +48,15 @@
                 
                 if (empty($_POST['id']))
                 {
-                    $result = pg_query($conn, "SELECT max(id) as next FROM pessoa");
-                    $row = pg_fetch_assoc($result);
+                    $result = mysqli_query($conn, "SELECT max(id) as next FROM pessoa");
+                    $row = mysqli_fetch_assoc($result);
                     $next = (int) $row['next'] + 1;
                     
                     $sql = "INSERT INTO pessoa (id, nome, endereco, bairro, telefone,
                                                 email, id_cidade)
                                         VALUES ( '{$next}', '{$nome}', '{$endereco}',
                                     '{$bairro}', '{$telefone}', '{$email}', '{$id_cidade}')";
-                    $result = pg_query($conn, $sql);
+                    $result = mysqli_query($conn, $sql);
                 }
                 else
                 {
@@ -66,11 +67,11 @@
                                               email = '{$email}',
                                               id_cidade = '{$id_cidade}'
                                     WHERE id = '{$id}'";
-                    $result = pg_query($conn, $sql);
+                    $result = mysqli_query($conn, $sql);
                 }
                 
-                print ($result) ? 'Registro salvo com sucesso': pg_last_error($conn);
-                pg_close($conn);
+                print ($result) ? 'Registro salvo com sucesso': mysqli_error($conn);
+                mysqli_close($conn);
             }
         }
         ?>

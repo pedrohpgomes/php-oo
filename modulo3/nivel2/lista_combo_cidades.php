@@ -1,13 +1,14 @@
 <?php
 function lista_combo_cidades( $id_cidade = null )
 {
-    $conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
+    //$conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
+    $conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
     
     $output = '';
-    $result = pg_query($conn, 'SELECT id, nome FROM cidade');
+    $result = mysqli_query($conn, 'SELECT id, nome FROM cidade');
     if ($result)
     {
-        while ($row = pg_fetch_assoc($result))
+        while ($row = mysqli_fetch_assoc($result))
         {
             $id = $row['id'];
             $nome = $row['nome'];
@@ -15,6 +16,6 @@ function lista_combo_cidades( $id_cidade = null )
             $output .= "<option {$check} value='{$id}'> $nome </option>";
         }
     }
-    pg_close($conn);
+    mysqli_close($conn);
     return $output;
 }
