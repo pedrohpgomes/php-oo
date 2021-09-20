@@ -1,16 +1,18 @@
 <?php
-$conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
+//$conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
+$conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
+mysqli_set_charset($conn, "utf8mb4");
 
 if ( !empty($_GET['action']) and ($_GET['action'] == 'delete'))
 {
     $id = (int) $_GET['id'];
-    pg_query($conn, "DELETE FROM pessoa WHERE id='{$id}'");
+    mysqli_query($conn, "DELETE FROM pessoa WHERE id='{$id}'");
 }
 
-$result = pg_query($conn, 'SELECT * from pessoa ORDER BY id');
+$result = mysqli_query($conn, 'SELECT * from pessoa ORDER BY id');
 
 $items = '';
-while ($row = pg_fetch_assoc($result))
+while ($row = mysqli_fetch_assoc($result))
 {  
     $item = file_get_contents('html/item.html');
     $item = str_replace( '{id}',    $row['id'], $item);
@@ -26,4 +28,6 @@ $list = file_get_contents('html/list.html');
 $list = str_replace('{items}',   $items, $list);
 
 print $list;
+
+mysqli_close($conn);
 ?>

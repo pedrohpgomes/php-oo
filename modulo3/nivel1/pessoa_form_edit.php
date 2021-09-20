@@ -10,6 +10,7 @@
             {
                 //$conn = pg_connect('host=localhost port=5432 dbname=livro user=postgres password=');
                 $conn = mysqli_connect('127.0.0.1', 'root', '', 'livro');
+                mysqli_set_charset($conn, "utf8mb4");
                 $id = (int) $_GET['id'];
                 $result = mysqli_query($conn, "SELECT * FROM pessoa WHERE id='{$id}'");
                 $row = mysqli_fetch_assoc($result);
