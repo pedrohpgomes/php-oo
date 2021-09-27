@@ -9,11 +9,13 @@ class Pessoa
         {
             $ini = parse_ini_file('config/livro.ini');
             $host = $ini['host'];
-            $name = $ini['name'];
+            $dbname = $ini['dbname'];
             $user = $ini['user'];
             $pass = $ini['pass'];
             
-            self::$conn = new PDO("pgsql:dbname={$name};user={$user};password={$pass};host={$host}");
+            //self::$conn = new PDO("pgsql:dbname={$name};user={$user};password={$pass};host={$host}");
+            //self::$conn = new PDO("mysql:host=127.0.0.1;dbname=livro;charset=utf8mb4", 'root', '');
+            self::$conn = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8mb4", $user, $pass);
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return self::$conn;
